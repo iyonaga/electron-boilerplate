@@ -1,0 +1,16 @@
+html {
+  font-size: (10px/ 16px * 100%);
+}
+
+body {
+  font-size: 1.4rem;
+  -webkit-font-smoothing: antialiased;
+  font-weight: 500;
+  line-height: 1.45;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  vertical-align: bottom;
+}
