@@ -27,4 +27,6 @@ yarn dev
 ```
 
 ### Packaging
-Will write later.
+```
+yarn package
+```

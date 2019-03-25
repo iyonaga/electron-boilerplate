@@ -11,6 +11,10 @@
     "build": "yarn build:main && yarn build:renderer",
     "build:main": "cross-env BABEL_ENV=main webpack --mode production --config webpack.main.config.js",
     "build:renderer": "cross-env BABEL_ENV=renderer webpack --mode production --config webpack.renderer.config.js",
+    "package": "yarn build && electron-builder -mw --x64",
+    "package:mac": "yarn build && electron-builder --mac --x64",
+    "package:win": "yarn build && electron-builder --win --x64",
+    "postinstall": "electron-builder install-app-deps",
     "prestart": "yarn build",
     "start": "electron .",
     "lint": "yarn lint:js & yarn lint:scss",
@@ -36,6 +40,39 @@
       "stylelint --fix",
       "git add"
     ]
+  },
+  "build": {
+    "appId": "com.electron.boilerplate",
+    "files": [
+      "dist/",
+      "package.json"
+    ],
+    "directories": {
+      "buildResources": "resources",
+      "output": "release"
+    },
+    "dmg": {
+      "contents": [
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 130,
+          "y": 220,
+          "type": "file"
+        }
+      ]
+    },
+    "mac": {
+      "target": "dmg"
+    },
+    "win": {
+      "target": "nsis"
+    },
+    "publish": null
   },
   "devDependencies": {
     "@babel/core": "^7.3.4",
