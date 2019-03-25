@@ -1,5 +1,5 @@
 # electron-boilerplate
-A minimal boilerplate for a Electron + React application.
+A minimal boilerplate for an Electron + React application.
 
 ## Installation
 
