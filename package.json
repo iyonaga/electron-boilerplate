@@ -1,9 +1,14 @@
 {
   "name": "electron-boilerplate",
   "version": "0.1.0",
+  "description": "A minimal boilerplate for an Electron + React application.",
   "main": "dist/main.js",
   "author": "iyonaga <yiyonaga@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iyonaga/electron-boilerplate.git"
+  },
   "scripts": {
     "dev": "yarn dev:renderer",
     "dev:main": "cross-env BABEL_ENV=main NODE_ENV=development electron -r @babel/register ./src/main.js",
