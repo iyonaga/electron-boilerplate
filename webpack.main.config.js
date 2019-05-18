@@ -9,7 +9,7 @@ module.exports = {
   target: 'electron-main',
 
   entry: {
-    main: './src/main.js'
+    main: './src/main.tsx'
   },
 
   output: {
@@ -25,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',

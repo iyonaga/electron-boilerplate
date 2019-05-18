@@ -1,11 +1,12 @@
 {
-  "parser": "babel-eslint",
+  "parser": "@typescript-eslint/parser",
   "extends": [
     "eslint:recommended",
     "plugin:prettier/recommended",
     "plugin:react/recommended"
   ],
   "plugins": [
+    "@typescript-eslint",
     "prettier",
     "react"
   ],
@@ -23,6 +24,8 @@
   },
   "rules": {
     "no-console": "off",
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": "error",
     "prettier/prettier": ["error", {
       "singleQuote": true
     }]

@@ -8,7 +8,8 @@ module.exports = api => {
         targets: { electron: require('electron/package.json').version },
         useBuiltIns: 'usage'
       }
-    ]
+    ],
+    '@babel/preset-typescript'
   ];
 
   return {

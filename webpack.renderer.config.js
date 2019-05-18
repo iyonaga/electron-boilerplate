@@ -14,7 +14,7 @@ module.exports = {
   target: 'electron-renderer',
 
   entry: {
-    renderer: './src/renderer.js'
+    renderer: './src/renderer.tsx'
   },
 
   output: {
@@ -31,7 +31,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -119,7 +119,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 
   plugins: [
