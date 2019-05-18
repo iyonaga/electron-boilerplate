@@ -6,7 +6,10 @@ let win;
 function createWindow() {
   win = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
   });
 
   win.loadFile(path.join(__dirname, 'index.html'));
