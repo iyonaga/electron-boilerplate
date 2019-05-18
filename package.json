@@ -27,24 +27,7 @@
     "lint:scss": "stylelint './src/**/*.{css,scss}'",
     "format": "yarn format:js && yarn format:scss",
     "format:js": "prettier-eslint --write './src/**/*.{js,jsx}'",
-    "format:scss": "prettier --write './src/**/*.{css,scss}' && stylelint --fix './src/**/*.{css,scss}'",
-    "precommit": "lint-staged"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    ".{js,jsx}": [
-      "prettier-eslint --write",
-      "git add"
-    ],
-    "*.scss": [
-      "prettier --write",
-      "stylelint --fix",
-      "git add"
-    ]
+    "format:scss": "prettier --write './src/**/*.{css,scss}' && stylelint --fix './src/**/*.{css,scss}'"
   },
   "build": {
     "appId": "com.electron.boilerplate",
