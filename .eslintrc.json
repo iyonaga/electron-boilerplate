@@ -5,10 +5,7 @@
     "plugin:prettier/recommended",
     "plugin:react/recommended"
   ],
-  "plugins": [
-    "prettier",
-    "react"
-  ],
+  "plugins": ["prettier", "react"],
   "env": {
     "es6": true,
     "browser": true,
@@ -23,8 +20,11 @@
   },
   "rules": {
     "no-console": "off",
-    "prettier/prettier": ["error", {
-      "singleQuote": true
-    }]
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true
+      }
+    ]
   }
 }
