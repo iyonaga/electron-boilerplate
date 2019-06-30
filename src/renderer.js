@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-import './styles/styles.global.scss';
+import './assets/styles/styles.global.scss';
 import App from './components/App';
 
 const render = Component => {

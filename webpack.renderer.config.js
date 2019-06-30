@@ -61,7 +61,7 @@ module.exports = {
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: './src/styles/helpers/**.scss'
+              resources: './src/assets/styles/helpers/**.scss'
             }
           }
         ]
