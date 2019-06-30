@@ -51,8 +51,9 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
-              modules: true,
-              localIdentName: '[name]--[local]--[hash:base64:5]'
+              modules: {
+                localIdentName: '[name]--[local]--[hash:base64:5]'
+              }
             }
           },
           'postcss-loader',
@@ -79,14 +80,7 @@ module.exports = {
 
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              noquotes: true
-            }
-          }
-        ]
+        use: ['svg-url-loader']
       },
 
       {
