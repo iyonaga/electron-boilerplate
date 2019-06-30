@@ -94,6 +94,7 @@
     "prettier-stylelint": "^0.4.2",
     "react-hot-loader": "^4.8.8",
     "sass-loader": "^7.1.0",
+    "sass-resources-loader": "^2.0.1",
     "stylelint": "^10.0.1",
     "stylelint-config-standard": "^18.3.0",
     "stylelint-order": "^3.0.0",

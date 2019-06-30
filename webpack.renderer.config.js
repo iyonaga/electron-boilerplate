@@ -50,14 +50,20 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
+              importLoaders: 3,
               modules: {
                 localIdentName: '[name]--[local]--[hash:base64:5]'
               }
             }
           },
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: './src/styles/helpers/**.scss'
+            }
+          }
         ]
       },
 
