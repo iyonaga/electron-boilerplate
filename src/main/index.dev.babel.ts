@@ -4,4 +4,4 @@ register({
   extensions: ['.ts', '.tsx', '.js', '.jsx']
 });
 
-require('./main.tsx');
+require('./index.tsx');

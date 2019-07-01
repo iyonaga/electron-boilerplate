@@ -14,7 +14,7 @@ module.exports = {
   target: 'electron-renderer',
 
   entry: {
-    renderer: './src/renderer.tsx'
+    renderer: './src/renderer/index.tsx'
   },
 
   output: {
@@ -50,13 +50,20 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2,
-              modules: true,
-              localIdentName: '[name]--[local]--[hash:base64:5]'
+              importLoaders: 3,
+              modules: {
+                localIdentName: '[name]--[local]--[hash:base64:5]'
+              }
             }
           },
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: './src/renderer/assets/styles/helpers/**.scss'
+            }
+          }
         ]
       },
 
@@ -79,14 +86,7 @@ module.exports = {
 
       {
         test: /\.svg$/,
-        use: [
-          {
-            loader: 'svg-url-loader',
-            options: {
-              noquotes: true
-            }
-          }
-        ]
+        use: ['svg-url-loader']
       },
 
       {
