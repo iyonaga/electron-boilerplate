@@ -14,7 +14,7 @@ module.exports = {
   target: 'electron-renderer',
 
   entry: {
-    renderer: './src/renderer.js'
+    renderer: './src/renderer/index.js'
   },
 
   output: {
@@ -61,7 +61,7 @@ module.exports = {
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: './src/assets/styles/helpers/**.scss'
+              resources: './src/renderer/assets/styles/helpers/**.scss'
             }
           }
         ]
