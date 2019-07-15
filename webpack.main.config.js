@@ -9,7 +9,7 @@ module.exports = {
   target: 'electron-main',
 
   entry: {
-    main: './src/main/index.ts'
+    main: './src/main/index.tsx'
   },
 
   output: {
