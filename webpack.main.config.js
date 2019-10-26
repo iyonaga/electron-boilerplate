@@ -9,7 +9,7 @@ module.exports = {
   target: 'electron-main',
 
   entry: {
-    main: './src/main/index.js'
+    main: './src/main/index.tsx'
   },
 
   output: {
@@ -25,7 +25,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.(j|t)sx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
@@ -35,6 +35,10 @@ module.exports = {
         }
       }
     ]
+  },
+
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.jsx']
   },
 
   plugins: [],
