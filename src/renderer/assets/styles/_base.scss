@@ -1,8 +1,22 @@
+:root {
+  --base-color: #000;
+  --bg-color: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --base-color: #fff;
+    --bg-color: #333;
+  }
+}
+
 html {
   font-size: (10px/ 16px * 100%);
 }
 
 body {
+  background-color: var(--bg-color);
+  color: var(--base-color);
   font-size: 1.4rem;
   -webkit-font-smoothing: antialiased;
   font-weight: 500;
