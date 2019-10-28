@@ -11,7 +11,7 @@
   },
   "scripts": {
     "dev": "yarn dev:renderer",
-    "dev:main": "cross-env BABEL_ENV=main NODE_ENV=development electron ./src/main/index.dev.babel.ts",
+    "dev:main": "cross-env BABEL_ENV=main NODE_ENV=development electron ./src/main/index.dev.ts",
     "dev:renderer": "cross-env BABEL_ENV=renderer webpack-dev-server --mode development --config webpack.renderer.config.js",
     "build": "yarn build:main && yarn build:renderer",
     "build:main": "cross-env BABEL_ENV=main webpack --mode production --config webpack.main.config.js",
