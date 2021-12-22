@@ -9,17 +9,17 @@ module.exports = {
   target: 'electron-main',
 
   entry: {
-    main: './src/main/index.tsx'
+    main: './src/main/index.tsx',
   },
 
   output: {
     filename: '[name].js',
-    path: path.join(__dirname, 'dist')
+    path: path.join(__dirname, 'dist'),
   },
 
   node: {
     __dirname: false,
-    __filename: false
+    __filename: false,
   },
 
   module: {
@@ -30,15 +30,15 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            cacheDirectory: true
-          }
-        }
-      }
-    ]
+            cacheDirectory: true,
+          },
+        },
+      },
+    ],
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
 
   plugins: [],
@@ -49,12 +49,12 @@ module.exports = {
         parallel: true,
         terserOptions: {
           compress: {
-            drop_console: true
-          }
-        }
-      })
-    ]
-  }
+            drop_console: true,
+          },
+        },
+      }),
+    ],
+  },
 };
 
 if (isProduction) {

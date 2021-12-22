@@ -1,7 +1,7 @@
 const register = require('@babel/register').default;
 
 register({
-  extensions: ['.ts', '.tsx', '.js', '.jsx']
+  extensions: ['.ts', '.tsx', '.js', '.jsx'],
 });
 
 require('./index.tsx');

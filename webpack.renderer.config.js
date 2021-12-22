@@ -14,18 +14,18 @@ module.exports = {
   target: 'electron-renderer',
 
   entry: {
-    renderer: './src/renderer/index.tsx'
+    renderer: './src/renderer/index.tsx',
   },
 
   output: {
     filename: '[name].js',
     path: path.join(__dirname, 'dist'),
-    publicPath: isProduction ? './' : `http://localhost:${port}/`
+    publicPath: isProduction ? './' : `http://localhost:${port}/`,
   },
 
   node: {
     __dirname: false,
-    __filename: false
+    __filename: false,
   },
 
   module: {
@@ -36,9 +36,9 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            cacheDirectory: true
-          }
-        }
+            cacheDirectory: true,
+          },
+        },
       },
 
       {
@@ -52,19 +52,19 @@ module.exports = {
             options: {
               importLoaders: 3,
               modules: {
-                localIdentName: '[name]--[local]--[hash:base64:5]'
-              }
-            }
+                localIdentName: '[name]--[local]--[hash:base64:5]',
+              },
+            },
           },
           'postcss-loader',
           'sass-loader',
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: './src/renderer/assets/styles/helpers/**.scss'
-            }
-          }
-        ]
+              resources: './src/renderer/assets/styles/helpers/**.scss',
+            },
+          },
+        ],
       },
 
       {
@@ -76,17 +76,17 @@ module.exports = {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
-              modules: false
-            }
+              modules: false,
+            },
           },
           'postcss-loader',
-          'sass-loader'
-        ]
+          'sass-loader',
+        ],
       },
 
       {
         test: /\.svg$/,
-        use: ['svg-url-loader']
+        use: ['svg-url-loader'],
       },
 
       {
@@ -97,10 +97,10 @@ module.exports = {
             options: {
               limit: 8192,
               name: '[name].[ext]',
-              outputPath: 'img/'
-            }
-          }
-        ]
+              outputPath: 'img/',
+            },
+          },
+        ],
       },
 
       {
@@ -110,28 +110,28 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/'
-            }
-          }
-        ]
-      }
-    ]
+              outputPath: 'fonts/',
+            },
+          },
+        ],
+      },
+    ],
   },
 
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', '.jsx']
+    extensions: ['.ts', '.tsx', '.js', '.jsx'],
   },
 
   plugins: [
     new MiniCssExtractPlugin({
-      filename: 'styles.css'
+      filename: 'styles.css',
     }),
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/index.html',
-      port
+      port,
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
   ],
 
   optimization: {
@@ -142,32 +142,34 @@ module.exports = {
             parallel: true,
             terserOptions: {
               compress: {
-                drop_console: true
-              }
-            }
-          })
+                drop_console: true,
+              },
+            },
+          }),
         ]
-      : []
+      : [],
   },
 
   devServer: {
     port,
     compress: true,
     hot: true,
-    contentBase: path.join(__dirname, 'dist'),
-    watchContentBase: true,
-    before() {
+    static: {
+      directory: path.join(__dirname, 'dist'),
+      watch: true,
+    },
+    onBeforeSetupMiddleware: () => {
       spawn('yarn', ['run', 'dev:main'], {
         shell: true,
         env: process.env,
-        stdio: 'inherit'
+        stdio: 'inherit',
       })
-        .on('close', code => {
+        .on('close', (code) => {
           process.exit(code);
         })
-        .on('error', spawnError => {
+        .on('error', (spawnError) => {
           console.log(spawnError);
         });
-    }
-  }
+    },
+  },
 };

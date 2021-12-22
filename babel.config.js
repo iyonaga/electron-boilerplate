@@ -1,31 +1,34 @@
-module.exports = api => {
+module.exports = (api) => {
   api.cache(true);
 
   const presets = [
     [
       '@babel/preset-env',
       {
-        targets: { electron: require('electron/package.json').version },
+        targets: {
+          // require('electron/package.json').versionだとエラーになる
+          electron: require('./node_modules/electron/package.json').version,
+        },
         useBuiltIns: 'usage',
-        corejs: 3
-      }
+        corejs: 3,
+      },
     ],
-    '@babel/preset-typescript'
+    '@babel/preset-typescript',
   ];
 
   return {
     env: {
       main: {
-        presets
+        presets,
       },
       renderer: {
         presets: [...presets, '@babel/preset-react'],
         plugins: [
           '@babel/plugin-proposal-class-properties',
           '@babel/plugin-proposal-function-bind',
-          'react-hot-loader/babel'
-        ]
-      }
-    }
+          'react-hot-loader/babel',
+        ],
+      },
+    },
   };
 };
